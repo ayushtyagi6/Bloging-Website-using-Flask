@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block body %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{url_for('static',filename='img/iron_man.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>User Pannel</h1>
+            <span class="subheading">You Are Logged In</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+         <h1>Add New Posts</h1>
+    
+      <a href="/edit/0"><button class="btn btn-primary">Add New Posts</button></a>
+
+<!--      <h2>Logout</h2>    
+      <a href="/userdash"><button class="btn btn-primary">Logout</button></a>
+  <hr>     -->
+        
+    <h3>Welcome {{users.name}}</h3>  
+
+    
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sno</th>
+      <th scope="col">Name</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      
+
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for post in posts %}  
+    <tr>
+      <td>{{post.sno}}</td>
+      <td>{{post.name}}</td>
+      <td>{{post.title}}</td>
+      <td>{{post.date}}</td>
+    </tr>
+
+  {% endfor %}
+   
+  
+
+  </tbody>
+</table>
+
+
+        
+        
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ {% endblock %}
